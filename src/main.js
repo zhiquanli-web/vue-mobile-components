@@ -18,6 +18,9 @@ Vue.use(Option);
 Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
 
+import Toast from "@/packages/Toast/index";
+Vue.prototype.$toast = Toast;
+
 Vue.config.productionTip = false;
 
 new Vue({

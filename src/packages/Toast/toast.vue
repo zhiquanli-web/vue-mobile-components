@@ -1,4 +1,3 @@
-<!-- 消息提示组件 -->
 <template>
   <div class="container">
     <div class="toast-container">
@@ -12,11 +11,11 @@ export default {
   name: "toast",
   data() {
     return {
-      message: "", // 消息文本
-      duration: 3000, // 显示时长，毫秒
-      closed: false, // 消息框是否关闭
-      timer: null, // 计时器
-      isShow: false, // 是否显示
+      message: "",
+      duration: 3000,
+      closed: false,
+      timer: null,
+      isShow: false,
     };
   },
   mounted() {

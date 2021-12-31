@@ -1,5 +1,5 @@
 import Vue from "vue";
-import Toast from "@/components/Toast/main";
+import Toast from "./toast";
 
 let ToastConstructor = Vue.extend(Toast);
 let instance;
