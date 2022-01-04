@@ -24,6 +24,7 @@
       </li-option>
     </li-select>
     <br>
+    <li-button>11</li-button>
     <!-- swiper -->
     <!-- <li-swiper :list="swiperList" :slidesPerView="3" :pagination="true"></li-swiper> -->
   </div>

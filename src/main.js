@@ -11,6 +11,8 @@ import Select from "@/packages/Select";
 import Option from "./packages/Option";
 import Checkbox from "@/packages/Checkbox";
 import CheckboxGroup from "./packages/CheckboxGroup";
+import Button from "./packages/Button";
+import ButtonGroup from "./packages/ButtonGroup";
 import Swiper from "./packages/Swiper";
 Vue.use(Radio);
 Vue.use(RadioGroup);
@@ -18,6 +20,8 @@ Vue.use(Select);
 Vue.use(Option);
 Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
+Vue.use(Button);
+Vue.use(ButtonGroup);
 Vue.use(Swiper);
 
 import Toast from "@/packages/Toast/index";
