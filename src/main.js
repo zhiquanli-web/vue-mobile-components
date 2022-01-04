@@ -11,12 +11,14 @@ import Select from "@/packages/Select";
 import Option from "./packages/Option";
 import Checkbox from "@/packages/Checkbox";
 import CheckboxGroup from "./packages/CheckboxGroup";
+import Swiper from "./packages/Swiper";
 Vue.use(Radio);
 Vue.use(RadioGroup);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
+Vue.use(Swiper);
 
 import Toast from "@/packages/Toast/index";
 Vue.prototype.$toast = Toast;

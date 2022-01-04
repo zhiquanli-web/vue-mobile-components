@@ -16,12 +16,16 @@
       <li-checkbox label="复选框2">复选框2</li-checkbox>
       <li-checkbox label="复选框3">复选框3</li-checkbox>
     </li-checkbox-group>
+
     <!-- 选择器 -->
     <li-select v-model="select" @change="selectChange">
       <li-option v-for="item in list" :key="item.value" :value="item.value">
         {{ item.label }}
       </li-option>
     </li-select>
+    <br>
+    <!-- swiper -->
+    <li-swiper :list="swiperList" :slidesPerView="3" :pagination="true"></li-swiper>
   </div>
 </template>
 
@@ -44,6 +48,7 @@ export default {
         { label: "选项7", value: 7 },
       ],
       select: 2,
+      swiperList: [1, 2, 3, 4, 5],
     };
   },
   methods: {

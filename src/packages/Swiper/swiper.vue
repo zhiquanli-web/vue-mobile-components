@@ -1,6 +1,6 @@
 <!-- 滑动轮播组件: 兼容移动端、PC端 -->
 <template>
-  <div class="swiper-main">
+  <section class="swiper-main">
     <!-- 轮播盒子 -->
     <div class="swiper">
       <!-- 移动容器 -->
@@ -10,9 +10,6 @@
         @touchend="touchend"
         @touchmove="touchmove"
         @touchstart="touchstart"
-        @mousedown="touchstart"
-        @mousemove="touchmove"
-        @mouseup="touchend"
       >
         <!-- 滑块 -->
         <div
@@ -50,12 +47,12 @@
         ></li>
       </ul>
     </template>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
-  name: "swiper",
+  name: "LiSwiper",
   props: {
     duration: {
       //自动轮播切换时延
@@ -121,7 +118,6 @@ export default {
       ); // 单个滑块的宽度
       this.left = 0 - this.itemWidth * this.index; // 容器的初始left值
       this.swiper.style.left = this.left + "px"; // 设置容器的初始位置
-      this.isMobile = "ontouchstart" in window; // 判断移动端还是pc端
       this.autoplay && this.autoPlay();
     });
   },
@@ -132,9 +128,7 @@ export default {
         e.preventDefault();
       }
       this.status = 1;
-      this.oldX = this.startX = this.isMobile
-        ? e.targetTouches[0].pageX
-        : e.pageX; // 开始坐标
+      this.oldX = this.startX = e.targetTouches[0].pageX;
       this.swiperAutoTimer && clearInterval(this.swiperAutoTimer);
     },
     // 手指触摸/鼠标 滑动
@@ -143,7 +137,7 @@ export default {
         e.preventDefault();
       }
       if (this.status !== 1) return;
-      this.newX = this.isMobile ? e.changedTouches[0].pageX : e.pageX;
+      this.newX = e.changedTouches[0].pageX;
       if (this.newX < this.oldX) {
         const width = this.oldX - this.newX;
         this.left -=
@@ -160,7 +154,7 @@ export default {
     // 手指触摸结束/鼠标抬起
     touchend(e) {
       this.status = 0;
-      const pageX = this.isMobile ? e.changedTouches[0].pageX : e.pageX;
+      const pageX = e.changedTouches[0].pageX;
       if (pageX < this.startX) {
         this.index++;
       } else {
