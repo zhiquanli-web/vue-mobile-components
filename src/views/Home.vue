@@ -25,7 +25,7 @@
     </li-select>
     <br>
     <!-- swiper -->
-    <li-swiper :list="swiperList" :slidesPerView="3" :pagination="true"></li-swiper>
+    <!-- <li-swiper :list="swiperList" :slidesPerView="3" :pagination="true"></li-swiper> -->
   </div>
 </template>
 
@@ -47,7 +47,7 @@ export default {
         { label: "选项6", value: 6 },
         { label: "选项7", value: 7 },
       ],
-      select: 2,
+      select: 7,
       swiperList: [1, 2, 3, 4, 5],
     };
   },

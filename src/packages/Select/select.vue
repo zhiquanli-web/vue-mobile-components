@@ -13,7 +13,7 @@
     />
     <transition name="fade">
       <nav class="option-container" v-show="visible">
-        <ul class="select-list">
+        <ul class="select-list" ref="selectList">
           <slot></slot>
         </ul>
       </nav>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import Scrollbar from "smooth-scrollbar";
 export default {
   name: "LiSelect",
   props: {
@@ -36,12 +37,28 @@ export default {
       query: "",
       visible: false,
       isFocus: false,
+      scroll: null,
     };
   },
   provide() {
     return {
       select: this,
     };
+  },
+  watch: {
+    visible(val) {
+      if (val) {
+        this.scroll = Scrollbar.init(this.$refs.selectList, { damping: 0.2 });
+        setTimeout(() => {
+          const options = this.$refs.selectList.childNodes[0].childNodes;
+          const active = Array.from(options).find((item) =>
+            item.className.includes("active")
+          );
+          console.log("active", active.offsetTop);
+          this.scroll.scrollTo(0, active.offsetTop, 500);
+        }, 100);
+      }
+    },
   },
   created() {
     this.query = this.value;
@@ -66,6 +83,9 @@ export default {
       this.$emit("input", val);
       this.$emit("change", val);
     },
+  },
+  beforeDestroy() {
+    this.scroll.destroy();
   },
 };
 </script>
@@ -98,14 +118,24 @@ export default {
       border: #fb8241 1px solid;
     }
   }
-  nav {
+  ::v-deep nav {
     box-sizing: border-box;
     position: absolute;
+    z-index: 999;
     width: 100%;
     border-radius: vw(8);
     border: 1px solid #fb8241;
     overflow: hidden;
     margin-top: vw(10);
+    background-color: #fff;
+    .scrollbar-thumb {
+      width: vw(8);
+      border-radius: vw(4);
+    }
+    .scrollbar-track-y {
+      width: vw(8);
+      border-radius: vw(4);
+    }
   }
   ::v-deep .select-list {
     max-height: vw(290);

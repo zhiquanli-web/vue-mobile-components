@@ -1,5 +1,5 @@
 <template>
-  <li @click.stop="selectOptionClick" :class="{ active: selected }">
+  <li @click.stop="selectOptionClick" :class="{ active: selected }" :ref="value">
     <slot></slot>
     <template v-if="!$slots.default">{{ label }}</template>
   </li>
