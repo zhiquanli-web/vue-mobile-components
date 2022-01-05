@@ -54,7 +54,6 @@ export default {
           const active = Array.from(options).find((item) =>
             item.className.includes("active")
           );
-          console.log("active", active.offsetTop);
           this.scroll.scrollTo(0, active.offsetTop, 500);
         }, 100);
       }
