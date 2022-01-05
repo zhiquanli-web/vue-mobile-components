@@ -23,8 +23,15 @@
         {{ item.label }}
       </li-option>
     </li-select>
-    <br>
-    <li-button>11</li-button>
+    <br />
+    <li-button @change="handleClick" type="text">11</li-button>
+    <li-button @change="handleClick">22</li-button>
+    <br />
+    <br />
+    <li-button-group v-model="label" @change="handleClick" :type="type">
+      <li-button>3</li-button>
+      <li-button>4</li-button>
+    </li-button-group>
     <!-- swiper -->
     <!-- <li-swiper :list="swiperList" :slidesPerView="3" :pagination="true"></li-swiper> -->
   </div>
@@ -50,6 +57,8 @@ export default {
       ],
       select: 7,
       swiperList: [1, 2, 3, 4, 5],
+      label: 4,
+      type: "button",
     };
   },
   methods: {
@@ -61,6 +70,9 @@ export default {
     },
     selectChange(val) {
       console.log("选择器", val);
+    },
+    handleClick(val) {
+      console.log("按钮", val);
     },
   },
 };

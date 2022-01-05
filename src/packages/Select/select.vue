@@ -85,7 +85,7 @@ export default {
     },
   },
   beforeDestroy() {
-    this.scroll.destroy();
+    this.scroll && this.scroll.destroy();
   },
 };
 </script>

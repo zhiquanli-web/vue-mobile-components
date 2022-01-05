@@ -1,5 +1,5 @@
 <template>
-  <section class="button-group-container" role="group">
+  <section class="button-group-container">
     <slot />
   </section>
 </template>
@@ -8,11 +8,14 @@
 export default {
   name: "LiButtonGroup",
   componentName: "buttonGroup",
-  data() {
-    return {};
-  },
   props: {
     value: {},
+    type: String,
+  },
+  created() {
+    this.$on("handleChange", (value) => {
+      this.$emit("change", value);
+    });
   },
 };
 </script>
