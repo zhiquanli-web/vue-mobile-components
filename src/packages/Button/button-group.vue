@@ -10,7 +10,10 @@ export default {
   componentName: "buttonGroup",
   props: {
     value: {},
-    type: String,
+    type: {
+      type: String,
+      default: "button",
+    },
   },
   created() {
     this.$on("handleChange", (value) => {
