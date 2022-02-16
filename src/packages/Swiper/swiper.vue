@@ -1,4 +1,4 @@
-<!-- 滑动轮播组件: 兼容移动端、PC端 -->
+<!-- 滑动轮播组件 -->
 <template>
   <section class="swiper-main">
     <!-- 轮播盒子 -->
@@ -27,7 +27,7 @@
             marginRight: `${spaceBetween}px`,
           }"
         >
-          <div class="item-content">
+          <div class="swiper-item-content">
             {{ item }}
           </div>
         </div>
@@ -230,51 +230,46 @@ export default {
     width: 100%;
     margin: auto;
     overflow-x: hidden;
-    .swiper-container {
+    &-container {
       position: relative;
       display: flex;
       left: 0px;
-      .swiper-item {
-        flex-shrink: 0;
-        width: vw(100);
-        height: vw(200);
-        background: #eee;
-        border: 1px solid #ccc;
-        overflow-y: auto;
-        .item-content {
-          height: vw(400);
-        }
-      }
       &.move {
         transition: all 0.2s ease-in-out;
       }
     }
-  }
-  .swiper-btn-prev {
-    position: absolute;
-    cursor: pointer;
-    left: vw(10);
-    top: calc(50% - #{vw(10)});
-    transform: translateY(-50%);
-    width: 0px;
-    height: 0px;
-    border: vw(12) solid #000;
-    border-left-color: transparent;
-    border-top-color: transparent;
-    transform: rotate(135deg);
-  }
-  .swiper-btn-next {
-    position: absolute;
-    cursor: pointer;
-    right: vw(10);
-    top: calc(50% - #{vw(10)});
-    transform: translateY(-50%);
-    width: 0px;
-    height: 0px;
-    border: vw(12) solid #000;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    transform: rotate(-135deg);
+    &-item {
+      @include wh(100, 200);
+      flex-shrink: 0;
+      background: #eee;
+      border: 1px solid #ccc;
+      overflow-y: auto;
+      &-content {
+        height: vw(400);
+      }
+    }
+    &-btn-prev {
+      @include wh(0, 0);
+      position: absolute;
+      left: vw(10);
+      top: calc(50% - #{vw(10)});
+      transform: translateY(-50%);
+      border: vw(12) solid #000;
+      border-left-color: transparent;
+      border-top-color: transparent;
+      transform: rotate(135deg);
+    }
+    &-btn-next {
+      @include wh(0, 0);
+      position: absolute;
+      right: vw(10);
+      top: calc(50% - #{vw(10)});
+      transform: translateY(-50%);
+      border: vw(12) solid #000;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      transform: rotate(-135deg);
+    }
   }
   .nav-list {
     position: absolute;
@@ -283,9 +278,7 @@ export default {
     display: flex;
     transform: translateX(-50%);
     li {
-      cursor: pointer;
-      width: vw(20);
-      height: vw(20);
+      @include wh(20, 20);
       background-color: rgb(210, 210, 210);
       margin: 0 vw(5);
       border-radius: vw(10);

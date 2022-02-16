@@ -102,8 +102,7 @@ export default {
   text-align: left;
   margin-right: vw(14);
   .checkbox-icon {
-    width: vw(30);
-    height: vw(30);
+    @include wh(30,30);
     display: inline-block;
     border: 1px solid #b1906b;
     border-radius: vw(8);
@@ -118,12 +117,9 @@ export default {
       background-color: #fb8241;
       position: relative;
       &::before {
-        position: absolute;
+        @include lt(10,4);
+        @include wh(8,14);
         content: "";
-        left: vw(10);
-        top: vw(4);
-        width: vw(8);
-        height: vw(14);
         border-color: #f8f8f8;
         border-style: solid;
         border-width: 0 1px 1px 0;

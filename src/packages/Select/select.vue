@@ -101,9 +101,9 @@ export default {
   max-height: 0;
 }
 .select-container {
+  @include wh(350, 60);
   position: relative;
   width: vw(350);
-  height: vw(60);
   .select-input {
     box-sizing: border-box;
     outline: none;
