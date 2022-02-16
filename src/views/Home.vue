@@ -33,7 +33,13 @@
       <li-button>4</li-button>
     </li-button-group>
     <!-- swiper -->
-    <!-- <li-swiper :list="swiperList" :slidesPerView="3" :pagination="true"></li-swiper> -->
+    <li-swiper
+      :list="swiperList"
+      :slidesPerView="2"
+      :spaceBetween="10"
+      pagination
+      navigation
+    ></li-swiper>
   </div>
 </template>
 
@@ -56,10 +62,15 @@ export default {
         { label: "选项7", value: 7 },
       ],
       select: 7,
-      swiperList: [1, 2, 3, 4, 5],
+      swiperList: [],
       label: 4,
       type: "button",
     };
+  },
+  created() {
+    for (let index = 1; index < 10; index++) {
+      this.swiperList.push(index);
+    }
   },
   methods: {
     radioChange(val) {

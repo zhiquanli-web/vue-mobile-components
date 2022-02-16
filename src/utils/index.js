@@ -13,7 +13,7 @@ export function vwToPx(value) {
   if (typeof value === "string") {
     value = value.replace(/vw$/, "");
   }
-  if (!isNaN(Number(value))) {
+  if (Number.isNaN(Number(value))) {
     throw Error("值不能为空，并且应该是一个数字，或者可以由Number解析的值");
   }
   const oneVw = window.innerWidth / 100;
