@@ -11,18 +11,19 @@
       readonly
       class="select-input"
     />
-    <transition name="fade">
+    <collapse-transition>
       <nav class="option-container" v-show="visible">
         <ul class="select-list" ref="selectList">
           <slot></slot>
         </ul>
       </nav>
-    </transition>
+    </collapse-transition>
   </section>
 </template>
 
 <script>
 import Scrollbar from "smooth-scrollbar";
+import CollapseTransition from "@/utils/collapse-transition";
 export default {
   name: "LiSelect",
   props: {
@@ -31,6 +32,7 @@ export default {
   },
   components: {
     Option: () => import("./options.vue"),
+    "collapse-transition": CollapseTransition,
   },
   data() {
     return {
@@ -90,16 +92,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-  max-height: vw(290);
-  transition: max-height 0.3s ease-in;
-}
-
-.fade-enter,
-.fade-leave-to {
-  max-height: 0;
-}
 .select-container {
   @include wh(350, 60);
   position: relative;
