@@ -49,7 +49,7 @@
     <br />
 
     <!-- 菜单栏 -->
-    <li-menu :list="menuList">菜单组件</li-menu>
+    <li-menu :list="menuList" @change="changeMenu">菜单组件</li-menu>
   </div>
 </template>
 
@@ -140,6 +140,9 @@ export default {
     handleClick(val) {
       console.log("按钮", val);
     },
+    changeMenu(val) {
+      console.log('val', val);
+    }
   },
 };
 </script>

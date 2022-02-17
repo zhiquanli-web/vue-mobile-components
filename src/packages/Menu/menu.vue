@@ -71,18 +71,20 @@ export default {
   methods: {
     // 更新激活菜单
     handleClickMenu(item) {
-      this.initMenu = this.activeIds.includes(this.menuIdList[0])
-        ? this.formatData(this.initMenu, [], this.menuIdList[0])
+      const clickId = this.menuIdList[0]
+      this.$emit('change', clickId)
+      this.initMenu = this.activeIds.includes(clickId)
+        ? this.formatData(this.initMenu, [], clickId)
         : this.initMenuList;
       // 当前点击类id
       let newArr = [];
       const hasChild = item.children && item.children.length > 0;
-      if (this.menuIdList[0] === item.id && hasChild) {
+      if (clickId === item.id && hasChild) {
         // 点击一级菜单 且 存在子菜单
         newArr = this.findActiveIds(item.children);
       } else if (hasChild) {
         // 2级存在子菜单
-        newArr = this.findActiveIds(item.children, [], this.menuIdList[0]);
+        newArr = this.findActiveIds(item.children, [], clickId);
       }
       this.activeIds = [...new Set([...newArr, ...this.menuIdList])];
       this.menuIdList = [];
