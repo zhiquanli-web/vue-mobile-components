@@ -74,12 +74,6 @@ export default {
       this.initMenu = this.activeIds.includes(this.menuIdList[0])
         ? this.formatData(this.initMenu, [], this.menuIdList[0])
         : this.initMenuList;
-      console.log(
-        "-----------",
-        this.initMenu,
-        "==========",
-        this.menuIdList[0]
-      );
       // 当前点击类id
       let newArr = [];
       const hasChild = item.children && item.children.length > 0;

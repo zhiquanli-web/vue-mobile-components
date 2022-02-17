@@ -126,7 +126,6 @@ export default {
   },
   methods: {
     vpx(val) {
-      console.log("val", val);
       return val ? vpx(val) : 0;
     },
     // 开始触摸/鼠标按下
@@ -245,7 +244,7 @@ export default {
       border: 1px solid #ccc;
       overflow-y: auto;
       &-content {
-        height: vw(400);
+        height: vw(200);
       }
     }
     &-btn-prev {
