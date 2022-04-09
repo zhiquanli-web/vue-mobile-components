@@ -13,7 +13,10 @@
     </span>
     <template v-if="hasChildren">
       <collapse-transition>
-        <ul class="menu-list" v-show="comp.activeIds.includes(item.id) && item.isOpen">
+        <ul
+          class="menu-list"
+          v-show="comp.activeIds.includes(item.id) && item.isOpen"
+        >
           <li-sub-menu
             v-for="subItem in item.children"
             :key="subItem.id"

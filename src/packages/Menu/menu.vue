@@ -102,7 +102,6 @@ export default {
         // 激活当前点击菜单 及其 子菜单
         for (let index = 0; index < arr.length; index++) {
           const { children, id, level } = arr[index];
-          // if (level < 5) { // 控制最大展示层级
           if (children && children.length > 0) {
             // 存在子菜单
             if (id === +curId) {
