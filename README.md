@@ -1,4 +1,4 @@
-# mobile-template
+# vue-mobile-components
 
 ## Project setup
 ```
